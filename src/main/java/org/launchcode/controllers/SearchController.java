@@ -29,7 +29,7 @@ public class SearchController {
 
         ArrayList<HashMap<String, String>> jobs;
 
-        if (searchType.equals("all") || searchType.equals("")) {
+        if (searchType.equals("all")|| searchType.equals("")) {
             jobs = JobData.findByValue(searchType);
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
@@ -39,11 +39,5 @@ public class SearchController {
         model.addAttribute("jobs", jobs);
 
         return "search";
-
-        //After looking up the search results via the JobData class, you'll need to pass them into the search.html view
-        // via the model. You'll also need to pass ListController.columnChoices to the view, as the existing search handler does.
-
-
     }
-
 }
